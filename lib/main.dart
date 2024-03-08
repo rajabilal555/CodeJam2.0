@@ -1,5 +1,6 @@
 import 'package:codejam/app/dashboard/dashboard_screen.dart';
 import 'package:codejam/firebase_options.dart';
+import 'package:codejam/utilities/router.dart';
 import 'package:codejam/utilities/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'CodeJam 2.0',
       theme: darkThemeData,
-      home: const DashboardScreen(),
+      routerConfig: routerConfig,
     );
   }
 }
