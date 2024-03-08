@@ -1,4 +1,3 @@
-import 'package:codejam/app/dashboard/dashboard_screen.dart';
 import 'package:codejam/firebase_options.dart';
 import 'package:codejam/utilities/router.dart';
 import 'package:codejam/utilities/theme/theme.dart';
@@ -26,4 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
