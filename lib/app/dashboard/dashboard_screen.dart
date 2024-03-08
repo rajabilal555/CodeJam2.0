@@ -84,7 +84,9 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: Column(
             children: [
-              SizedBox(height: 14,),
+              SizedBox(
+                height: 14,
+              ),
               Text(
                 'g',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -97,7 +99,6 @@ class CustomTextFormField extends StatelessWidget {
           filled: true,
           border: new OutlineInputBorder(
             borderRadius: new BorderRadius.circular(5.0),
-
           ),
           //fillColor: Colors.green
         ),

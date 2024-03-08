@@ -1,7 +1,7 @@
 import 'package:codejam/app/dashboard/dashboard_screen.dart';
 import 'package:codejam/firebase_options.dart';
 import 'package:codejam/utilities/router.dart';
-import 'package:codejam/utilities/theme.dart';
+import 'package:codejam/utilities/theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
