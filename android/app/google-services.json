@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "342976115068",
+    "project_id": "codejam-24",
+    "storage_bucket": "codejam-24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342976115068:android:ab95d2dc0bd5b37f2874f9",
+        "android_client_info": {
+          "package_name": "com.example.codejam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk9p5gNDDGheP2yM-i6JHDTVulr8AbOVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
