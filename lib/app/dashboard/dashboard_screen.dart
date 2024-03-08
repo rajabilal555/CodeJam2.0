@@ -9,26 +9,111 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text('Metrics'),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
+        title: Text('Metrics'),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
+      ),
+      body: Column(
+        children: [
+          GridView.builder(
+            shrinkWrap: true,
+            itemCount: cards.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, childAspectRatio: 3 / 4),
+            itemBuilder: (_, index) {
+              final card = cards[index];
+              return CustomCard(
+                  title: card.title,
+                  url: card.url,
+                  intake: card.intake,
+                  method: card.method,
+                  time: card.time);
+            },
+          ),
+          Row(
+            children: [
+              CustomTextFormField(
+                label: 'Protein',
+                controller: TextEditingController(),
+              ),
+              CustomTextFormField(
+                label: 'Carbs',
+                controller: TextEditingController(),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              CustomTextFormField(
+                label: 'Fiber',
+                controller: TextEditingController(),
+              ),
+              CustomTextFormField(
+                label: 'Fat',
+                controller: TextEditingController(),
+              ),
+            ],
+          ),
+          CustomTextFormField(
+            label: 'Calories',
+            controller: TextEditingController(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
+    super.key,
+    required this.label,
+    required this.controller,
+  });
+
+  final String label;
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          suffixIcon: Column(
+            children: [
+              SizedBox(height: 14,),
+              Text(
+                'g',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ],
+          ),
+
+          labelText: label,
+          fillColor: Colors.grey.shade900,
+          filled: true,
+          border: new OutlineInputBorder(
+            borderRadius: new BorderRadius.circular(5.0),
+
+          ),
+          //fillColor: Colors.green
         ),
-        body: GridView.builder(
-          itemCount: cards.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 3 / 4),
-          itemBuilder: (_, index) {
-            final card = cards[index];
-            return CustomCard(
-                title: card.title,
-                url: card.url,
-                intake: card.intake,
-                method: card.method,
-                time: card.time);
-          },
-        ));
+        validator: (val) {
+          if (val!.length == 0) {
+            return "Protein cannot be empty";
+          } else {
+            return null;
+          }
+        },
+        keyboardType: TextInputType.number,
+        style: new TextStyle(
+          fontFamily: "Inter",
+        ),
+      ),
+    );
   }
 }
 
