@@ -8,26 +8,32 @@ class ChartsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Expanded(
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: CircularChart(
-              percent: 65,
-            ),
-          ),
-        ),
-        Expanded(
+        SizedBox(
+          width: 64,
+          height: 64,
           child: CircularChart(
             percent: 65,
           ),
         ),
-        Expanded(
+        SizedBox(
+          width: 64,
+          height: 64,
           child: CircularChart(
             percent: 65,
           ),
         ),
-        Expanded(
+        SizedBox(
+          width: 64,
+          height: 64,
+          child: CircularChart(
+            percent: 65,
+          ),
+        ),
+        SizedBox(
+          width: 64,
+          height: 64,
           child: CircularChart(
             percent: 65,
           ),

@@ -1,3 +1,4 @@
+import 'package:codejam/app/dashboard/widgets/calories_chart.dart';
 import 'package:codejam/core/models/card_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,7 +8,6 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -15,53 +15,54 @@ class DashboardScreen extends StatelessWidget {
         title: Text('Metrics'),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
       ),
-      body: Column(
-        children: [
-          GridView.builder(
-            shrinkWrap: true,
-            itemCount: cards.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: 3 / 4),
-            itemBuilder: (_, index) {
-              final card = cards[index];
-              return CustomCard(
-                  title: card.title,
-                  url: card.url,
-                  intake: card.intake,
-                  method: card.method,
-                  time: card.time);
-            },
-          ),
-          Row(
-            children: [
-              CustomTextFormField(
-                label: 'Protein',
-                controller: TextEditingController(),
-              ),
-              CustomTextFormField(
-                label: 'Carbs',
-                controller: TextEditingController(),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              CustomTextFormField(
-                label: 'Fiber',
-                controller: TextEditingController(),
-              ),
-              CustomTextFormField(
-                label: 'Fat',
-                controller: TextEditingController(),
-              ),
-            ],
-          ),
-          CustomTextFormField(
-            label: 'Calories',
-            controller: TextEditingController(),
-          ),
-        ],
-      ),
+      // body: Column(
+      //   children: [
+      //     GridView.builder(
+      //       shrinkWrap: true,
+      //       itemCount: cards.length,
+      //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      //           crossAxisCount: 2, childAspectRatio: 3 / 4),
+      //       itemBuilder: (_, index) {
+      //         final card = cards[index];
+      //         return CustomCard(
+      //             title: card.title,
+      //             url: card.url,
+      //             intake: card.intake,
+      //             method: card.method,
+      //             time: card.time);
+      //       },
+      //     ),
+          body: CaloriesChart(),
+          // Row(
+          //   children: [
+          //     CustomTextFormField(
+          //       label: 'Protein',
+          //       controller: TextEditingController(),
+          //     ),
+          //     CustomTextFormField(
+          //       label: 'Carbs',
+          //       controller: TextEditingController(),
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   children: [
+          //     CustomTextFormField(
+          //       label: 'Fiber',
+          //       controller: TextEditingController(),
+          //     ),
+          //     CustomTextFormField(
+          //       label: 'Fat',
+          //       controller: TextEditingController(),
+          //     ),
+          //   ],
+          // ),
+          // CustomTextFormField(
+          //   label: 'Calories',
+          //   controller: TextEditingController(),
+          // ),
+    //     ],
+    //   ),
     );
   }
 }
